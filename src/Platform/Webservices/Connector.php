@@ -1621,6 +1621,20 @@ class Connector extends AbstractConnector
     }
 
     /**
+     * Retrieve a person entity based on a provided id.
+     *
+     * @param string $compliancePersonId Compliance person id (required)
+     *
+     * @return \stdClass <CompliancePerson>
+     */
+    public function complianceGetPerson($compliancePersonId)
+    {
+        return $this->getAdapter()->call('complianceGetPerson', [
+            'compliance_person_id' => $compliancePersonId,
+        ]);
+    }
+
+    /**
      *  Search for an overview of Corporate Group Relationships aka ‘concern relaties’ for specified dossier number.
      *  The overview gives a summary of the concern-relations size and depth.
      *
